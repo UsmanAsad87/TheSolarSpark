@@ -1,12 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:the_solar_spark/features/user/main_menu/controller/main_menu_controller.dart';
 import 'package:the_solar_spark/features/user/main_menu/widgets/bottom_bar_item.dart';
-import 'package:the_solar_spark/features/user/main_menu/widgets/bottom_bar_png_item.dart';
 import 'package:the_solar_spark/utils/constants/assets_manager.dart';
-import 'package:the_solar_spark/utils/launchUrl.dart';
 import 'package:the_solar_spark/utils/thems/my_colors.dart';
 
 class MainMenuScreen extends ConsumerStatefulWidget {

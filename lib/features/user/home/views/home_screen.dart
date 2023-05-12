@@ -1,5 +1,4 @@
 import 'package:the_solar_spark/commons/common_libs.dart';
-import 'package:the_solar_spark/features/user/home/widgets/category_card.dart';
 import 'package:the_solar_spark/features/user/home/widgets/date_location_widget.dart';
 import 'package:the_solar_spark/features/user/home/widgets/prayer_timing.dart';
 
