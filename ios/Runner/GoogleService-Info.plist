@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>163063459174-d069hgcm959gaa7cdprj1pvfp6jjpmg4.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.163063459174-d069hgcm959gaa7cdprj1pvfp6jjpmg4</string>
+	<key>API_KEY</key>
+	<string>AIzaSyA9f74mwann-c-gvmwPhhJNCsP03aF70ZQ</string>
+	<key>GCM_SENDER_ID</key>
+	<string>163063459174</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.solar.theSolarSpark</string>
+	<key>PROJECT_ID</key>
+	<string>thesolarspark-c5432</string>
+	<key>STORAGE_BUCKET</key>
+	<string>thesolarspark-c5432.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:163063459174:ios:8c233f9c889c6bfa53eca7</string>
+</dict>
+</plist>

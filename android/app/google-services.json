@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "163063459174",
+    "project_id": "thesolarspark-c5432",
+    "storage_bucket": "thesolarspark-c5432.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:163063459174:android:08cede7e3977a50b53eca7",
+        "android_client_info": {
+          "package_name": "com.solar.the_solar_spark"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "163063459174-gfgbombse1svuo9a3dn3hbo1jotu1tdc.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAX26yFT9q7bYg_QOnHJOnGGwK3USt-4vw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "163063459174-gfgbombse1svuo9a3dn3hbo1jotu1tdc.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
