@@ -48,7 +48,7 @@ final geoLocationProvider = FutureProvider.autoDispose<String>((ref) async {
 
   Placemark place = placemarks[0];
   String address =
-      ' ${place.locality}';
+      '${place.locality} ';
 
   return address;
 });

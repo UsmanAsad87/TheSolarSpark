@@ -30,17 +30,18 @@ class _HomeScreenState extends State<HomeScreen> {
                 child: Column(
                   children: [
                     CurrentWeather(weather: weather),
+                    padding16,
                     WeatherDetailsWidget(curWeather: weather.current),
                     padding16,
                     Container(
-                      padding: const EdgeInsets.symmetric(horizontal: 16),
+                      padding: EdgeInsets.symmetric(horizontal: 16.w),
                       alignment: Alignment.topLeft,
                       child: Text(
                         "24 Hours",
                         style: getSemiBoldStyle(fontSize: 14.spMin),
                       ),
                     ),
-                    padding16,
+                    padding8,
                     HourlyWeatherWidget(hourWeather: weather.hourly),
                     padding16,
                     DailyWeatherWidget(dailyWeather: weather.daily)
