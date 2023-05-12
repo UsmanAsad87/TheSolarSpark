@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:the_solar_spark/commons/common_libs.dart';
 import 'package:the_solar_spark/commons/common_widgets/padding.dart';
 import 'package:the_solar_spark/utils/constants/image_const.dart';
 import 'package:the_solar_spark/utils/utils.dart';
@@ -11,7 +12,22 @@ class DailyWeatherWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
+    final List<Daily> dailyWeather2=dailyWeather.sublist(1);
+    return  Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 16),
+      child: GridView.builder(
+          shrinkWrap: true,
+          physics: const NeverScrollableScrollPhysics(),
+          itemCount: dailyWeather2.length,
+          itemBuilder: (context, index) {
+            return DaySummaryWidget2(dailyWeather: dailyWeather2[index]);
+          }, gridDelegate:SliverGridDelegateWithFixedCrossAxisCount(
+        childAspectRatio: 3,
+        crossAxisCount: 2,
+        mainAxisSpacing: 10.h,
+          crossAxisSpacing: 10.h,
+      ),),
+    );Padding(
       padding: const EdgeInsets.symmetric(horizontal: 16),
       child: ListView.builder(
           shrinkWrap: true,
@@ -43,8 +59,8 @@ class DaySummaryWidget extends StatelessWidget {
       padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 16),
       margin: const EdgeInsets.symmetric(vertical: 8),
       decoration: BoxDecoration(
-          color: theme.colorScheme.secondaryContainer,
-          borderRadius: BorderRadius.circular(15)),
+          color: MyColors.themeColor.withOpacity(0.5),
+          borderRadius: BorderRadius.circular(10.r)),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
@@ -52,28 +68,70 @@ class DaySummaryWidget extends StatelessWidget {
             flex: 2,
             child: Text(
               getDayFromEpoch(dailyWeather.dt),
-              style: theme.textTheme.headline6?.copyWith(
-                color: theme.colorScheme.onSecondaryContainer,
-              ),
+              style: getMediumStyle(fontSize: 14.spMin,color: MyColors.titleColor),
             ),
           ),
           Image.asset(
             ImageAssets.getSmallAsset(dailyWeather.weather.first.icon),
-            width: _size.width * 0.09,
+            width: _size.width * 0.07,
           ),
           padding32,
           Text(
             '${dailyWeather.temp.max}°',
-            style: theme.textTheme.headline5?.copyWith(
-              color: theme.colorScheme.onSecondaryContainer,
+            style:  getMediumStyle(fontSize: 14.spMin,color: MyColors.titleColor),
             ),
-          ),
           padding24,
           Text(
             '${dailyWeather.temp.min}°',
-            style: theme.textTheme.headline6?.copyWith(
-              color: theme.colorScheme.tertiary,
+            style: getMediumStyle(fontSize: 13.spMin,color: MyColors.bodyColor),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+class DaySummaryWidget2 extends StatelessWidget {
+  const DaySummaryWidget2({
+    Key? key,
+    required this.dailyWeather,
+  }) : super(key: key);
+
+  final Daily dailyWeather;
+
+  @override
+  Widget build(BuildContext context) {
+    final _size = MediaQuery.of(context).size;
+    final theme = Theme.of(context);
+    return Container(
+      padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 16),
+      margin: const EdgeInsets.symmetric(vertical: 8),
+      decoration: BoxDecoration(
+          color: MyColors.themeColor.withOpacity(0.5),
+          borderRadius: BorderRadius.circular(10.r)),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          Expanded(
+            flex: 2,
+            child: Text(
+              getDayFromEpoch(dailyWeather.dt),
+              style: getMediumStyle(fontSize: 14.spMin,color: MyColors.titleColor),
             ),
+          ),
+          Image.asset(
+            ImageAssets.getSmallAsset(dailyWeather.weather.first.icon),
+            width: _size.width * 0.07,
+          ),
+          padding8,
+          Text(
+            '${dailyWeather.temp.max}°',
+            style:  getMediumStyle(fontSize: 14.spMin,color: MyColors.titleColor),
+          ),
+          padding4,
+          Text(
+            '${dailyWeather.temp.min}°',
+            style: getMediumStyle(fontSize: 13.spMin,color: MyColors.bodyColor),
           ),
         ],
       ),

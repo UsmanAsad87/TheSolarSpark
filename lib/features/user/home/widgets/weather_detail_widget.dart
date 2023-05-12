@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:the_solar_spark/commons/common_libs.dart';
 
 import '../models/current_model.dart';
 
@@ -17,8 +18,8 @@ class WeatherDetailsWidget extends StatelessWidget {
       padding: const EdgeInsets.symmetric(horizontal: 8),
       physics: const NeverScrollableScrollPhysics(),
       gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-        childAspectRatio: 1.7,
-        crossAxisCount: 2,
+        childAspectRatio: 2,
+        crossAxisCount: 3,
       ),
       children: [
         HeadingDetailWidget(
@@ -56,11 +57,11 @@ class HeadingDetailWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
     return Container(
-      padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 16),
-      margin: const EdgeInsets.all(8),
+      padding: EdgeInsets.symmetric(vertical: 8.h, horizontal: 16.w),
+      margin: EdgeInsets.all(8.h),
       decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(25),
-        color: theme.colorScheme.primaryContainer,
+        borderRadius: BorderRadius.circular(15.r),
+        color: MyColors.themeColor,
       ),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -69,8 +70,7 @@ class HeadingDetailWidget extends StatelessWidget {
             alignment: Alignment.topRight,
             child: Text(
               title,
-              style: theme.textTheme.subtitle1
-                  ?.copyWith(color: theme.colorScheme.onPrimaryContainer),
+              style: getMediumStyle(fontSize: 12.spMin,color: MyColors.white),
             ),
           ),
           Align(
@@ -79,13 +79,11 @@ class HeadingDetailWidget extends StatelessWidget {
                 text: TextSpan(children: [
               TextSpan(
                 text: value,
-                style: theme.textTheme.headline4
-                    ?.copyWith(color: theme.colorScheme.onPrimaryContainer),
+                style: getSemiBoldStyle(fontSize: 14.spMin,color: MyColors.white),
               ),
               TextSpan(
                 text: ' $unit',
-                style: theme.textTheme.headline6
-                    ?.copyWith(color: theme.colorScheme.onPrimaryContainer),
+                style: getSemiBoldStyle(fontSize: 12.spMin,color: MyColors.white),
               ),
             ])),
           ),
