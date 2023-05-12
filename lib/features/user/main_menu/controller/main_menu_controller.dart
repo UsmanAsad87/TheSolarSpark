@@ -1,4 +1,5 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:the_solar_spark/features/user/graphs/views/graphs_main_screen.dart';
 import 'package:the_solar_spark/features/user/home/views/home_screen.dart';
 import 'package:the_solar_spark/features/user/profile/views/profile_screen.dart';
 
@@ -9,7 +10,7 @@ final mainMenuProvider = ChangeNotifierProvider((ref) => MainMenuController());
 class MainMenuController extends ChangeNotifier {
   List<Widget> screens = [
     const HomeScreen(),
-    const ProfileScreen(),
+    const GraphMainScreen(),
     const ProfileScreen(),
   ];
 

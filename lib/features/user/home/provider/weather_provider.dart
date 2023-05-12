@@ -7,16 +7,16 @@ import '../models/weather_one_call_model.dart';
 
 final weatherProvider = FutureProvider.autoDispose<WeatherData>((ref) async {
   Position position = await determinePosition();
-  // Response response =
-  // await HomeRepository().getHomeData(lat: position.latitude , long: position.longitude);
+  Response response =
+  await HomeRepository().getHomeData(lat: position.latitude , long: position.longitude);
 
 
 
   // my home location[Usman's]
-  double lat = 33.602335;
-  double long =73.110448;
-  Response response =
-  await HomeRepository().getHomeData(lat: lat, long: long);
+  // double lat = 33.602335;
+  // double long =73.110448;
+  // Response response =
+  // await HomeRepository().getHomeData(lat: lat, long: long);
 
 
   if (response.statusCode == 200) {

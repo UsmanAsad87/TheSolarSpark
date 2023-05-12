@@ -4,6 +4,10 @@ import 'package:the_solar_spark/features/auth/views/login_screen.dart';
 import 'package:the_solar_spark/features/auth/views/register_login_screen.dart';
 import 'package:the_solar_spark/features/auth/views/register_screen.dart';
 import 'package:the_solar_spark/features/auth/views/reset_pass_screen.dart';
+import 'package:the_solar_spark/features/user/graphs/views/current_volt_temp_graph.dart';
+import 'package:the_solar_spark/features/user/graphs/views/efficiency_vs_time_graph.dart';
+import 'package:the_solar_spark/features/user/graphs/views/power_vs_time_graph.dart';
+import 'package:the_solar_spark/features/user/graphs/views/temp_hum_light_graph.dart';
 import 'package:the_solar_spark/features/user/main_menu/views/main_menu_screen.dart';
 import 'package:the_solar_spark/features/user/profile/views/profile_screen.dart';
 import 'package:the_solar_spark/features/splash/views/splash_screen.dart';
@@ -23,10 +27,10 @@ class AppRoutes {
   static const String courseJoinFormScreen = '/courseJoinFormScreen';
   static const String feedsScreen = '/feedsScreen';
   static const String userProfileScreen = '/userProfileScreen';
-  static const String readSeeAllScreen = '/ReadSeeAllScreen';
-  static const String watchSeeAllScreen = '/watchSeeAllScreen';
-  static const String singleArticleScreen = '/SingleArticleScreen';
-  static const String singleVideoScreen = '/SingleVideoScreen';
+  static const String temperatureHumidityLightGraph = '/temperatureHumidityLightGraph';
+  static const String efficiencyVSTimeGraph = '/efficiencyVSTimeGraph';
+  static const String powerVsTimeGraph = '/PowerVsTimeGraph';
+  static const String currentVoltVsTempGraph = '/currentVoltVsTempGraph';
 
 
   static Route<dynamic> onGenerateRoute(RouteSettings settings) {
@@ -47,6 +51,15 @@ class AppRoutes {
         return _buildRoute(const ResetPassScreen());
       case userProfileScreen:
         return _buildRoute(const ProfileScreen());
+      case temperatureHumidityLightGraph:
+        return _buildRoute(const TemperatureHumidityLightGraph());
+      case efficiencyVSTimeGraph:
+        return _buildRoute(const EfficiencyVSTimeGraph());
+      case powerVsTimeGraph:
+        return _buildRoute(const PowerVsTimeGraph());
+      case currentVoltVsTempGraph:
+        return _buildRoute(const CurrentVoltVsTempGraph());
+
 
 
 

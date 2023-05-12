@@ -35,15 +35,15 @@ final geoLocationProvider = FutureProvider.autoDispose<String>((ref) async {
   // continue accessing the position of the device.
   Position position = await Geolocator.getCurrentPosition(
       desiredAccuracy: LocationAccuracy.high);
-  // List<Placemark> placemarks =
-  // await placemarkFromCoordinates(position.latitude, position.longitude);
+  List<Placemark> placemarks =
+  await placemarkFromCoordinates(position.latitude, position.longitude);
 
 
  // Hardcoded usman location
-  double lat = 33.602335;
-  double long =73.110448;
-  List<Placemark> placemarks =
-  await placemarkFromCoordinates(lat, long);
+ //  double lat = 33.602335;
+ //  double long =73.110448;
+ //  List<Placemark> placemarks =
+ //  await placemarkFromCoordinates(lat, long);
 
 
   Placemark place = placemarks[0];
