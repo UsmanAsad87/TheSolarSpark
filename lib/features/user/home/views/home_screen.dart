@@ -1,6 +1,12 @@
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:the_solar_spark/commons/common_libs.dart';
-import 'package:the_solar_spark/features/user/home/widgets/date_location_widget.dart';
-import 'package:the_solar_spark/features/user/home/widgets/prayer_timing.dart';
+import 'package:the_solar_spark/commons/common_widgets/padding.dart';
+import 'package:the_solar_spark/features/user/home/provider/weather_provider.dart';
+import 'package:the_solar_spark/features/user/home/widgets/current_weather.dart';
+import 'package:the_solar_spark/features/user/home/widgets/dialy_weather_widget.dart';
+import 'package:the_solar_spark/features/user/home/widgets/hourly_weather_widget.dart';
+import 'package:the_solar_spark/features/user/home/widgets/weather_detail_widget.dart';
+import 'package:the_solar_spark/utils/loading.dart';
 
 
 class HomeScreen extends StatefulWidget {
@@ -15,31 +21,44 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: MyColors.white,
-      body: SingleChildScrollView(
-        child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 10),
-          child: Column(
-              mainAxisAlignment: MainAxisAlignment.start,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                SizedBox(
-                  height: 50.h,
+      body: Consumer(builder: (context, ref, child) {
+        return ref.watch(weatherProvider).when(
+          data: (weather) {
+            return SafeArea(
+              child: SingleChildScrollView(
+                physics: const BouncingScrollPhysics(),
+                child: Column(
+                  children: [
+                    CurrentWeather(weather: weather),
+                    WeatherDetailsWidget(curWeather: weather.current),
+                    padding16,
+                    Container(
+                      padding: const EdgeInsets.symmetric(horizontal: 16),
+                      alignment: Alignment.topLeft,
+                      child: Text(
+                        "24 Hours",
+                        style: getSemiBoldStyle(fontSize: 14.spMin),
+                      ),
+                    ),
+                    padding16,
+                    HourlyWeatherWidget(hourWeather: weather.hourly),
+                    padding16,
+                    DailyWeatherWidget(dailyWeather: weather.daily)
+                  ],
                 ),
-                DateLocationWidget(),
-                PrayerTimingWidget(),
-                SizedBox(
-                  height: 20.h,
-                ),
-                SizedBox(
-                  height: 90.h,
-                ),
-
-                //
-                // PrayerTimeTable(prayerTimeData: prayerTimeData),
-                // SizedBox(height: 100.h,),
-              ]),
-        ),
-      ),
+              ),
+            );
+          },
+          loading: () {
+            return LoadingWidget();
+          },
+          error: (error, stackTrace) {
+            // showToast(msg: 'Failed to load data');
+            return  Text(error.toString(),
+                style: getSemiBoldStyle(fontSize: 14.spMin,color: MyColors.themeColor));
+          },
+        );
+      }),
     );
   }
 }
